@@ -236,7 +236,7 @@ def get_or_create_search_term(db_session, term, gif_list=[]):
         gif_list = get_gifs_from_giphy(term)
         print(gif_list)
         for g in gif_list:
-            gif = get_or_create_gif(db_session, title = g['title'], url = g['url'])
+            gif = get_or_create_gif(db_session, title = g['title'], url = g['embed_url'])
             search.gifs.append(gif)
         db_session.add(search)
         db_session.commit()
