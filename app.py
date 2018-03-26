@@ -70,8 +70,9 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(255), unique=True, index=True)
     email = db.Column(db.String(64), unique=True, index=True)
-    collection = db.relationship('PersonalGifCollection', backref='User')
     password_hash = db.Column(db.String(128))
+    collection = db.relationship('PersonalGifCollection', backref='User')
+
     #TODO 364: In order to complete a relationship with a table that is detailed below (a one-to-many relationship for users and gif collections), you'll need to add a field to this User model. (Check out the TODOs for models below for more!)
     # Remember, the best way to do so is to add the field, save your code, and then create and run a migration!
 
